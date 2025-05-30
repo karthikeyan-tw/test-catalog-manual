@@ -1,29 +1,26 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: test-sample-component # A simple, valid name
-  description: A sample component for testing Backstage registration.
+  name: my-sample-test-component # You can change this to a unique name
+  description: This is a valid sample component to test Backstage registration from a public repository.
+  # You MUST replace 'YOUR_GITHUB_USERNAME' and 'YOUR_TEST_REPO_NAME' below
   annotations:
-    github.com/project-slug: "your-github-username/your-public-test-repo" # Replace with actual public repo slug
-    # If you want to test techdocs, and mkdocs.yml is at the root of this repo:
-    # backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: "YOUR_GITHUB_USERNAME/YOUR_TEST_REPO_NAME"
+    # Example: github.com/project-slug: "karthikeyan-tw/backstage-test-component"
+
+    # If you have an mkdocs.yml at the root of THIS repository for techdocs:
+    backstage.io/techdocs-ref: dir:.
   tags:
-    - sample
     - test
-    - backstage
+    - sample
+    - public-repo
   links:
-    - url: https://github.com/your-github-username/your-public-test-repo # Replace with actual public repo URL
-      title: GitHub Repository
+    # You MUST replace 'YOUR_GITHUB_USERNAME' and 'YOUR_TEST_REPO_NAME' below
+    - url: "https://github.com/YOUR_GITHUB_USERNAME/YOUR_TEST_REPO_NAME"
+      title: "Repository"
       icon: github
-    - url: https://admin.example.com/test-sample-component
-      title: Admin Dashboard
+    - url: "https://example.com/dashboard/my-sample-test-component" # Optional: A link to a relevant dashboard
+      title: "Dashboard"
       icon: dashboard
 spec:
-  type: service # Matches your intended component type
-  lifecycle: experimental
-  owner: group:default/guests # Or any valid owner, like "user:default/your-username" or "group:your-group"
-  system: examples # Optional: if you have a system defined
-  # dependsOn: # Optional: if it depends on other components/resources
-  #   - component:default/other-sample-component
-  # providesApis: # Optional: if it provides APIs
-  #   - sample-api
+  type: service # Or choose 'website', 'library', etc. as
