@@ -1,28 +1,16 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: my-sample-test-component # You can change this to a unique name
-  description: This is a valid sample component to test Backstage registration from a public repository.
-  # You MUST replace 'YOUR_GITHUB_USERNAME' and 'YOUR_TEST_REPO_NAME' below
-  annotations:
-    github.com/project-slug: "YOUR_GITHUB_USERNAME/YOUR_TEST_REPO_NAME"
-    # Example: github.com/project-slug: "karthikeyan-tw/backstage-test-component"
-    backstage.io/techdocs-ref: dir:. # If mkdocs.yml is at the root of THIS repository
-  tags:
-    - test
-    - sample
-    - public-repo
-  links:
-    # You MUST replace 'YOUR_GITHUB_USERNAME' and 'YOUR_TEST_REPO_NAME' below
-    - url: "https://github.com/YOUR_GITHUB_USERNAME/YOUR_TEST_REPO_NAME"
-      title: "Repository"
-      icon: github
-    - url: "https://example.com/dashboard/my-sample-test-component" # Optional example link
-      title: "Dashboard"
-      icon: dashboard
+  name: artist-web
+  description: The place to be, for great artists
 spec:
-  type: service # Or 'website', 'library', etc.
-  lifecycle: experimental # <--- ENSURED THIS IS PRESENT
-  owner: "user:default/guest" # IMPORTANT: Change to a valid owner in your Backstage.
-                               # e.g., "user:default/karthikeyan-tw" or "group:default/your-team"
-  system: "internal-tests" # Optional
+  type: website
+  lifecycle: production
+  owner: artist-relations-team
+  system: artist-engagement-portal
+  dependsOn:
+    - resource:default/artists-db
+  dependencyOf:
+    - component:default/artist-web-lookup
+  providesApis:
+    - artist-api
