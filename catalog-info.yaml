@@ -7,9 +7,7 @@ metadata:
   annotations:
     github.com/project-slug: "YOUR_GITHUB_USERNAME/YOUR_TEST_REPO_NAME"
     # Example: github.com/project-slug: "karthikeyan-tw/backstage-test-component"
-
-    # If you have an mkdocs.yml at the root of THIS repository for techdocs:
-    backstage.io/techdocs-ref: dir:.
+    backstage.io/techdocs-ref: dir:. # If mkdocs.yml is at the root of THIS repository
   tags:
     - test
     - sample
@@ -19,8 +17,12 @@ metadata:
     - url: "https://github.com/YOUR_GITHUB_USERNAME/YOUR_TEST_REPO_NAME"
       title: "Repository"
       icon: github
-    - url: "https://example.com/dashboard/my-sample-test-component" # Optional: A link to a relevant dashboard
+    - url: "https://example.com/dashboard/my-sample-test-component" # Optional example link
       title: "Dashboard"
       icon: dashboard
 spec:
-  type: service # Or choose 'website', 'library', etc. as
+  type: service # Or 'website', 'library', etc.
+  lifecycle: experimental # <--- ENSURED THIS IS PRESENT
+  owner: "user:default/guest" # IMPORTANT: Change to a valid owner in your Backstage.
+                               # e.g., "user:default/karthikeyan-tw" or "group:default/your-team"
+  system: "internal-tests" # Optional
