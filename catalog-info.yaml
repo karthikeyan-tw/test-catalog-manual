@@ -1,20 +1,29 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: databricks-accelerator
-  description: Databricks Terraform Accelerator
+  name: test-sample-component # A simple, valid name
+  description: A sample component for testing Backstage registration.
   annotations:
-    github.com/project-slug: 
-    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: "your-github-username/your-public-test-repo" # Replace with actual public repo slug
+    # If you want to test techdocs, and mkdocs.yml is at the root of this repo:
+    # backstage.io/techdocs-ref: dir:.
   tags:
-    - databricks
-    - terraform
-    - aws
+    - sample
+    - test
+    - backstage
   links:
-    - url: github.com?owner=karthikeyan-tw&repo=catalog-component-6
+    - url: https://github.com/your-github-username/your-public-test-repo # Replace with actual public repo URL
       title: GitHub Repository
       icon: github
+    - url: https://admin.example.com/test-sample-component
+      title: Admin Dashboard
+      icon: dashboard
 spec:
-  type: service
+  type: service # Matches your intended component type
   lifecycle: experimental
-  owner: group:data-platform
+  owner: group:default/guests # Or any valid owner, like "user:default/your-username" or "group:your-group"
+  system: examples # Optional: if you have a system defined
+  # dependsOn: # Optional: if it depends on other components/resources
+  #   - component:default/other-sample-component
+  # providesApis: # Optional: if it provides APIs
+  #   - sample-api
