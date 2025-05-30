@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: databricks-accelerator
+  description: Databricks Terraform Accelerator
+  annotations:
+    github.com/project-slug: 
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - databricks
+    - terraform
+    - aws
+  links:
+    - url: github.com?owner=karthikeyan-tw&repo=catalog-component-6
+      title: GitHub Repository
+      icon: github
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:data-platform
